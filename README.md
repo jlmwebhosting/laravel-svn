@@ -12,16 +12,16 @@ Initiating a repository
 --------------------------------
 Exporting/Opening a repository is done simply by the constructor of the library, as follows:
 
-    ```$repo = new SebRenauld\SVN("/path/to/my/repo","my_username","my_password");```
+    $repo = new SebRenauld\SVN("/path/to/my/repo","my_username","my_password");
 
 If the repository directory does not exist, it will be created. To set the repo URL, immediately call the following:
 
-    ```$repo->setRepository("http://path.to.my/svn/repo/");```
+    $repo->setRepository("http://path.to.my/svn/repo/");
 
 This will check out the repo, but only if the directory specified in the constructor is not already a working copy.
 
 Once this is done, the following functions are open to use/exposed. The checkmarks mark whether I have mapped all the possible warnings/errors based on them (PECL SVN is completely undocumented as of now).
-- [ ] ```update($paths=array(), $revisionNumber=SVN_REVISION_HEAD)`: Updates the given paths (relative to root) to the specified revision
+- [ ] ```update($paths=array(), $revisionNumber=SVN_REVISION_HEAD)```: Updates the given paths (relative to root) to the specified revision
 - [x] ```log($path="", $revisionFrom=SVN_REVISION_HEAD, $revisionTo=SVN_REVISION_INITIAL)```: Fetches all changes/commit logs for the given path between given revisions
 - [x] ```info($path)```: Retrieves the status of the file in the working copy (modified, deleted, etc)
 - [x] ```add_file($path)```: Marks a file to be added on the next commit
